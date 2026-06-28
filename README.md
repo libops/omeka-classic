@@ -1,6 +1,6 @@
 # Omeka Classic Docker Template
 
-LibOps Docker Compose template for running [Omeka Classic](https://omeka.org/classic/) with Traefik, MariaDB, and the LibOps Omeka Classic PHP/nginx image. Use it with [`sitectl-omeka-classic`](https://github.com/libops/sitectl-omeka-classic).
+The Omeka Classic Docker Template gives you a Docker Compose repository for running [Omeka Classic](https://omeka.org/classic/). It includes Traefik, MariaDB, and the LibOps Omeka Classic PHP/nginx image, and is designed to be managed with [`sitectl-omeka-classic`](https://github.com/libops/sitectl-omeka-classic).
 
 Docs:
 
