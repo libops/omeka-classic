@@ -1,0 +1,12 @@
+http:
+  services:
+    omeka-classic:
+      loadBalancer:
+        servers:
+          - url: "http://omeka-classic:80"
+  routers:
+    omeka-classic-web:
+      rule: 'Host(`localhost`)'
+      entryPoints:
+        - web
+      service: omeka-classic
