@@ -5,7 +5,7 @@ http:
         servers:
           - url: "http://omeka-classic:80"
   middlewares:
-  {{- if eq (env "TRAEFIK_TLS_ENABLED") "true" }}
+  {{- if eq (env "URI_SCHEME") "https" }}
     omeka-classic-https-redirect:
       redirectScheme:
         scheme: https
@@ -15,12 +15,12 @@ http:
       rule: 'Host(`{{ env "DOMAIN" | default "localhost" }}`)'
       entryPoints:
         - web
-      {{- if eq (env "TRAEFIK_TLS_ENABLED") "true" }}
+      {{- if eq (env "URI_SCHEME") "https" }}
       middlewares:
         - omeka-classic-https-redirect
       {{- end }}
       service: omeka-classic
-  {{- if eq (env "TRAEFIK_TLS_ENABLED") "true" }}
+  {{- if eq (env "URI_SCHEME") "https" }}
     omeka-classic-websecure:
       rule: 'Host(`{{ env "DOMAIN" }}`)'
       entryPoints:
@@ -29,4 +29,3 @@ http:
       tls:
         certResolver: letsencrypt
   {{- end }}
-
