@@ -22,7 +22,7 @@ secrets:
 
 services:
   init:
-    image: libops/base:3.2.2.0
+    image: libops/base:3.2.2.0@sha256:cd6bf8e69165ce839ea4f926e07ea597630ea1d385358fbd7fbcd21ae42c8997
     restart: no
     volumes:
       - ./secrets:/secrets:rw
