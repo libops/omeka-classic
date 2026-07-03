@@ -51,7 +51,8 @@ ENV \
     OMEKA_CLASSIC_ADMIN_PASSWORD=changeme \
     OMEKA_CLASSIC_SITE_TITLE="Omeka Classic" \
     OMEKA_CLASSIC_TABLE_PREFIX=omeka_ \
-    OMEKA_CLASSIC_ENABLE_HTTPS=false \
+    INGRESS_HOSTNAMES=localhost \
+    INGRESS_SCHEME=http \
     LIBOPS_SMTP_HOST=host.docker.internal \
     LIBOPS_SMTP_PORT=25 \
     SMTP_FROM=
