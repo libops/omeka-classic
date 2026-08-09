@@ -72,6 +72,12 @@ services:
       - source: OMEKA_CLASSIC_ADMIN_PASSWORD
     volumes:
       - omeka-classic-files:/var/www/omeka-classic/files:rw
+      - ./scripts/omeka-classic-rollout.sh:/usr/local/bin/sitectl-omeka-classic-rollout:ro,z
+      - ./scripts/omeka-classic-verify-database.sh:/usr/local/bin/sitectl-omeka-classic-verify-database:ro,z
+      - ./scripts/omeka-classic-verify-storage.sh:/usr/local/bin/sitectl-omeka-classic-verify-storage:ro,z
+      - ./scripts/omeka-classic-database-config.php:/usr/local/share/libops/sitectl-omeka-classic-database-config.php:ro,z
+      - ./scripts/omeka-classic-inspect.php:/usr/local/share/libops/sitectl-omeka-classic-inspect.php:ro,z
+      - ./scripts/omeka-classic-verify.sql:/usr/local/share/libops/sitectl-omeka-classic-verify.sql:ro,z
     depends_on:
       database-init:
         condition: service_completed_successfully
