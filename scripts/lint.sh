@@ -33,22 +33,6 @@ fi
 docker run --rm \
   --volume "${PWD}:/workspace:ro" \
   --workdir /workspace \
-  --entrypoint sh \
+  --entrypoint /workspace/scripts/lint-omeka-classic-php.sh \
   "${image_id}" \
-  -lc '
-    set -eu
-
-    paths=""
-    for dir in plugins themes rootfs; do
-      if [ -d "${dir}" ]; then
-        paths="${paths} ${dir}"
-      fi
-    done
-
-    if [ -z "${paths}" ] || ! find ${paths} -type f -name "*.php" | grep -q .; then
-      echo "No custom Omeka Classic PHP files found; skipping PHP lint."
-      exit 0
-    fi
-
-    find ${paths} -type f -name "*.php" -exec php -l {} \;
-  '
+  scripts plugins themes rootfs
